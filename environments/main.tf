@@ -1,11 +1,17 @@
 provider "aws" {
     region = "${var.aws_region}"
+    default_tags {
+        tags = {
+            Environment = var.environment
+            Owner       = var.product_owner
+        }
+    }
 }
 
 terraform {
   backend "s3" {
     bucket         = "hypha-terraform-state"
-    key            = "${var.environment}/terraform.tfstate"
+    key            = "dev/terraform.tfstate"
     region         = "us-east-2"
   }
 }

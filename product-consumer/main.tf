@@ -1,5 +1,10 @@
 provider "aws" {
     region = "${var.aws_region}"
+    default_tags {
+        tags = {
+            Environment = var.environment
+        }
+    }    
 }
 
 resource "aws_servicecatalog_provisioned_product" "product_deployment" {
@@ -45,9 +50,5 @@ resource "aws_servicecatalog_provisioned_product" "product_deployment" {
   provisioning_parameters {
     key   = "PrivateSubnet2Cidr"
     value = var.private_subnet2_cidr
-  }
-
-  tags = {
-    foo = "bar"
   }
 }

@@ -9,7 +9,7 @@ resource "aws_s3_bucket" "product_template_bucket" {
   bucket = "${var.bucket_name}-${random_string.random.id}"
 }
 
-resource "aws_s3_bucket_object" "product_template" {
+resource "aws_s3_object" "product_template" {
   bucket = aws_s3_bucket.product_template_bucket.id
   key    = "template.yaml"
   source = "./template.yaml"
