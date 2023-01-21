@@ -18,7 +18,7 @@ terraform {
 
 
 module "service_catalog_portfolio_product" {
-    source = "../product-developer"
+    source = "../modules/service-catalog"
     aws_region = var.aws_region
     bucket_name = var.bucket_name
     portfolio_description = var.portfolio_description
