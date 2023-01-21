@@ -12,7 +12,7 @@ resource "aws_s3_bucket" "product_template_bucket" {
 resource "aws_s3_object" "product_template" {
   bucket = aws_s3_bucket.product_template_bucket.id
   key    = "template.yaml"
-  source = "./template.yaml"
+  source = "${path.module}/template.yaml"
 }
 
 resource "aws_servicecatalog_portfolio" "portfolio" {
