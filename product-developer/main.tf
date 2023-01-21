@@ -28,6 +28,7 @@ resource "aws_servicecatalog_product" "product" {
 
   provisioning_artifact_parameters {
     template_url = "https://s3.amazonaws.com/${aws_s3_bucket.product_template_bucket.id}/${aws_s3_bucket_object.product_template.id}"
+    type  = "CLOUD_FORMATION_TEMPLATE"
   }
 }
 
